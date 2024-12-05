@@ -1,0 +1,23 @@
+.map{
+    background-color: darkslategray;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    display: flex;
+}
+
+.roadTile{
+    background-color: gray;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    display: flex;
+}
+
+.car{
+    background-color: red;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    display: flex;
+}
