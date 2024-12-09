@@ -24,7 +24,7 @@ class Ray {
         this.pos.y = y;
         
 		ctx.beginPath();
-		ctx.strokeStyle = "white";
+		ctx.strokeStyle = "blue";
 		ctx.moveTo(this.pos.x, this.pos.y);
 		ctx.lineTo(this.pos.x + this.dir.x * this.length, this.pos.y + this.dir.y * this.length);
 		ctx.stroke();
@@ -61,12 +61,36 @@ class Ray {
 
     getDistance(wall){
         var pt = this.cast(wall);
-
         if (pt){
             return Math.sqrt(Math.pow(this.pos.x - pt.x, 2) + Math.pow(this.pos.y - pt.y, 2));
         }
-
     }
+
+	getSensor(returnDistance = false){
+		var closest = null;
+		var min = Infinity;
+		for (const wall of walls) {
+			var intercept = this.cast(wall);
+			if (intercept) {
+				var distancia = Math.sqrt(Math.pow(this.pos.x - intercept.x, 2) + Math.pow(this.pos.y - intercept.y, 2));
+
+				if (distancia < min) {
+					min = distancia;
+					closest = intercept;
+				}
+			}
+		}
+
+		if (returnDistance) {
+			return min;
+		}
+		return closest;
+	}
+
+	getSensorsDistance(){
+		var dist = this.getSensor(true);
+		return dist;
+	}
 
     move(x,y){
         this.pos.x = x;
