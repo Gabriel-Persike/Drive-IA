@@ -15,23 +15,22 @@ $(document).ready(function () {
 	bindings();
 });
 
-function clock() {
+function executeClock() {
 	car.move();
-	var colision = checkColision();
-	if (colision) {
-		reset();
-	}
+	// var colision = checkColision();
+	// if (colision) {
+	// 	reset();
+	// }
 
 	var gotCheckPoint = checkColisionCheckPoint();
 	if (gotCheckPoint) {
-		console.log("Got CheckPoint");
 		givePoint(1);
 	}
 
 	drawCanvas();
 
 	if (animationId) {
-		requestAnimationFrame(clock);
+		requestAnimationFrame(executeClock);
 	}
 }
 
@@ -70,7 +69,7 @@ function startStop() {
 		window.cancelAnimationFrame(animationId);
 		animationId = null;
 	} else {
-		animationId = requestAnimationFrame(clock);
+		animationId = requestAnimationFrame(executeClock);
 	}
 }
 
@@ -91,7 +90,6 @@ function drawCanvas() {
 
 	checkIntersection(ctx);
 
-	console.log(car.rays[0].getDistance(walls[3]));
 }
 
 function checkIntersection(ctx) {
@@ -196,7 +194,7 @@ function reset() {
 	car.y = 22;
 	car.angle = 0;
 	car.speed = 2;
-	car.acceleration = 0;
+	// car.acceleration = 0;
 
 	point = 0;
 	$("#txtPoints").text(point);
@@ -212,3 +210,4 @@ function givePoint(quantidade) {
 	point += quantidade;
 	$("#txtPoints").text(point);
 }
+

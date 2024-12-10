@@ -7,11 +7,11 @@ class Car {
 		this.acceleration = 0;
 		this.rays = [
 			new Ray(this.x, this.y, this.angle),
-			new Ray(this.x, this.y, this.angle + 45),
-			new Ray(this.x, this.y, this.angle - 45),
+			// new Ray(this.x, this.y, this.angle + 45),
+			// new Ray(this.x, this.y, this.angle - 45),
 			new Ray(this.x, this.y, this.angle + 180),
-			new Ray(this.x, this.y, this.angle + 225),
-			new Ray(this.x, this.y, this.angle - 225),
+			// new Ray(this.x, this.y, this.angle + 225),
+			// new Ray(this.x, this.y, this.angle - 225),
 			new Ray(this.x, this.y, this.angle - 90),
 			new Ray(this.x, this.y, this.angle + 90),
 		];
