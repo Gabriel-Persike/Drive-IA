@@ -91,7 +91,7 @@ function drawCanvas() {
 
 	checkIntersection(ctx);
 
-	// console.log(car.rays[0].getDistance(walls[3]));
+	console.log(car.rays[0].getDistance(walls[3]));
 }
 
 function checkIntersection(ctx) {

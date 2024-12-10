@@ -92,6 +92,10 @@ class Ray {
 		return dist;
 	}
 
+	getAngle(){
+		return this.dir.y > 0 ? Math.acos(this.dir.x) * 180 / Math.PI : 360 -Math.acos(this.dir.x) * 180 / Math.PI;
+	}
+
     move(x,y){
         this.pos.x = x;
         this.pos.y = y;

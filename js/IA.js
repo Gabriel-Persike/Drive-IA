@@ -32,15 +32,43 @@ class Learing{
         var newValue = value + this.alpha * (reward + this.gamma * maxNext - value);
         this.qTable[state][action] = newValue;
     }
-
-
-
-
-
-
-
-
 }
 
 
 
+
+
+
+
+const descriptions = ["very close", "close",  "medium", "far",];
+function getNormalizedDistaceDescription(normalizeDistace){
+    return descriptions[normalizeDistace];
+}
+function normalizeDistace(distance){
+    // Normalize the distance into features
+
+    if (distance < 10) {
+        return 0;
+    }
+    else if (distance < 15) {
+        return 1;
+    }
+    else if (distance < 20) {
+        return 2;
+    }
+    else{
+        return 3;
+    }
+}
+
+function getStates(){
+    var states = {};
+  
+    
+
+    return states;
+}
+
+function getActions(){
+    return ["left", "right"];
+}
